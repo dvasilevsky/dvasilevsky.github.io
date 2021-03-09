@@ -1,0 +1,36 @@
+<nav>
+	<a href="./">Winner</a>
+	<a class="active" href="./vote">Vote</a>
+	<a href="./standings">Rankings</a>
+</nav>
+{{#if hasnt_voted}}
+	{{#if Vote}}
+		<h4 class="hover_txt"> Hover over images to enlarge them (click them if using mobile)</h4>
+		<ul>
+
+			{{#each Vote}}
+				<div class="listcontainer">
+					
+					<li>
+						<img src="photos/{{name}}" alt="Space picture thumbnail" class="zoom" />
+
+					</li>
+					<div class="button-holder">
+						<form action="./good" method="post">
+							<input type="hidden" name="photo" value="{{name}}" />
+							<input type="submit" value="Take my Vote!" />
+							
+						</form>
+					</div>
+				</div>
+			
+
+			{{/each}}
+
+		</ul>
+	{{/if}}
+{{else}}
+		
+	<h3 class="h3header">You've already voted this month! Go check out the current <a href="./standings" class= "rnk_color">Rankings</a>.</h3>
+
+{{/if}}
